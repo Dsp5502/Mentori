@@ -2,7 +2,7 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { loginGoogle } from '../../Redux/Actions/actionLogin';
+import { loginFacebook, loginGoogle } from '../../Redux/Actions/actionLogin';
 import LoginFormBasic from './LoginFormBasic';
 
 const FormLogin = () => {
@@ -10,6 +10,9 @@ const FormLogin = () => {
 
   const handleGoogle = () => {
     dispatch(loginGoogle());
+  };
+  const handleFacebook = () => {
+    dispatch(loginFacebook());
   };
 
   return (
@@ -23,7 +26,10 @@ const FormLogin = () => {
       <div className='w-3/5 border-2 flex flex-col justify-between items-center bg-white rounded-xl'>
         <h2 className='font-bold text-4xl text-black p-5'>Ingresar</h2>
         <div className='text-black w-full flex justify-center my-5 '>
-          <button className='shadow-2xl  mx-5 px-5 py-2 w-64  bg-blue-700 text-white rounded-2xl flex items-center'>
+          <button
+            onClick={handleFacebook}
+            className='shadow-2xl  mx-5 px-5 py-2 w-64  bg-blue-700 text-white rounded-2xl flex items-center'
+          >
             <FontAwesomeIcon className='w-1/3' icon={faFacebookF} />
             <p className='w-2/3  text-left'>Facebook</p>
           </button>
