@@ -1,9 +1,17 @@
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { loginGoogle } from '../../Redux/Actions/actionLogin';
 import LoginFormBasic from './LoginFormBasic';
 
 const FormLogin = () => {
+  const dispatch = useDispatch();
+
+  const handleGoogle = () => {
+    dispatch(loginGoogle());
+  };
+
   return (
     <section className='w-full flex justify-center items-center text-white p-5'>
       <div className='w-2/5 m-5 '>
@@ -19,7 +27,10 @@ const FormLogin = () => {
             <FontAwesomeIcon className='w-1/3' icon={faFacebookF} />
             <p className='w-2/3  text-left'>Facebook</p>
           </button>
-          <button className='shadow-2xl border-2 border-black mx-5 px-5 py-2  w-64  rounded-2xl flex items-center '>
+          <button
+            onClick={handleGoogle}
+            className='shadow-2xl border-2 border-black mx-5 px-5 py-2  w-64  rounded-2xl flex items-center '
+          >
             <img
               className='w-5'
               src='https://res.cloudinary.com/djjgtili7/image/upload/v1651011541/google_pu39vd.png'

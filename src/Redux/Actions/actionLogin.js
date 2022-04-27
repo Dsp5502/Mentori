@@ -1,4 +1,10 @@
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth';
+import { auth, google } from '../../Firebase/FirebaseConfig';
 // import { auth } from '../../Firebase/FirebaseConfig';
 import { typesLogin } from '../Types/types';
 
@@ -47,6 +53,21 @@ export const logoutAsync = () => {
     signOut(auth)
       .then((user) => {
         dispatch(logoutSync());
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
+};
+
+//* login Google
+
+export const loginGoogle = () => {
+  return async (dispatch) => {
+    signInWithPopup(auth, google)
+      .then((user) => {
+        console.log(user);
+        dispatch(loginSync(user.email, user.displayName));
       })
       .catch((error) => {
         console.error(error.message);
