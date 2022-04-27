@@ -3,7 +3,7 @@ export const FileUp = async (file) => {
 
   const formData = new FormData();
 
-  formData.append('upload_preset', 'amazonasProduct');
+  formData.append('upload_preset', 'mentori');
   formData.append('file', file);
 
   const resp = await fetch(urlCloudinary, {
