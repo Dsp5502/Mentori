@@ -1,6 +1,8 @@
 import { Field, Form, Formik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { loginAsync } from '../../Redux/Actions/actionLogin';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -15,8 +17,10 @@ const SignupSchema = Yup.object().shape({
 });
 
 const LoginFormBasic = () => {
+  const dispatch = useDispatch();
   const handleSubmit = ({ email, password }) => {
     console.log(email, password);
+    dispatch(loginAsync(email, password));
   };
 
   return (
