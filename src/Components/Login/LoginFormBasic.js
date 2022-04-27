@@ -32,30 +32,30 @@ const LoginFormBasic = () => {
       }}
     >
       {({ errors, touched }) => (
-        <Form className='w-full m-5 text-black flex flex-col'>
-          <label className='text-black'>CORREO ELECTRÓNICO</label>
+        <Form className='w-full m-5 text-black flex flex-col   px-16 '>
+          <label className='text-black mb-2'>CORREO ELECTRÓNICO</label>
           <Field
             name='email'
             placeholder='nombre@ejemplo.com'
             type='email'
-            className='borderEnvio rounded-sm px-2 outline-none'
+            className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-gray-100 '
           />
           {errors.email && touched.email ? (
             <div className='text-red-500'>{errors.email}</div>
           ) : null}
-          <label className='text-black'>CONTRASEÑA</label>
+          <label className='text-black mb-2'>CONTRASEÑA</label>
           <Field
             name='password'
             placeholder='********'
             type='password'
-            className='borderEnvio rounded-sm px-2 outline-none'
+            className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-gray-100'
           />
           {errors.password && touched.password ? (
             <div className='text-red-500'>{errors.password}</div>
           ) : null}
           <button
             type='submit'
-            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-sm'
+            className='bg-green-600  hover:bg-green-800  text-white font-bold py-2 px-4 rounded-2xl'
           >
             ENVIAR
           </button>

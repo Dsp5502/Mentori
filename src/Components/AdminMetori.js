@@ -1,18 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { logoutAsync } from '../Redux/Actions/actionLogin';
+import CreateMentor from './AdminMentori/CreateMentor';
+import CreateMentori from './AdminMentori/CreateMentori';
 
 const AdminMetori = () => {
-  const dispatch = useDispatch();
-  const handleLogOut = () => {
-    dispatch(logoutAsync());
-  };
-
   return (
-    <div>
-      <button className='text-white' onClick={handleLogOut}>
-        logOut
-      </button>
+    <div className='w-full  px-10 flex gap-5'>
+      <CreateMentor />
+      <CreateMentori />
     </div>
   );
 };

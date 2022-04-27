@@ -13,10 +13,12 @@ import DashRoutersRoutes from './DashRoutersRoutes';
 function AppRoutes() {
   const [checking, setChecking] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [logueadoBtn, setLogueadoBtn] = useState();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       console.log(user);
+      setLogueadoBtn(user);
       if (user?.uid) {
         setIsLoggedIn(true);
       } else {
@@ -26,12 +28,14 @@ function AppRoutes() {
     });
   }, [setIsLoggedIn, setChecking]);
 
+  console.log(logueadoBtn);
+
   if (checking) {
     return <h1 className='text-6xl text-white'>hola</h1>;
   }
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar logueadoBtn={logueadoBtn} />
       <Routes>
         <Route
           path='/'
