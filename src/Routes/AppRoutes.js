@@ -9,6 +9,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/FirebaseConfig';
 import PrivateRouters from './PrivateRouters';
 import DashRoutersRoutes from './DashRoutersRoutes';
+import OurMonitor from '../Components/OurMonitor';
 
 function AppRoutes() {
   const [checking, setChecking] = useState(true);
@@ -50,6 +51,14 @@ function AppRoutes() {
           element={
             <PublicRouters isLoggedIn={isLoggedIn}>
               <Login />
+            </PublicRouters>
+          }
+        />
+        <Route
+          path='/ourmonitor'
+          element={
+            <PublicRouters isLoggedIn={isLoggedIn}>
+              <OurMonitor />
             </PublicRouters>
           }
         />

@@ -9,6 +9,7 @@ const DashRoutersRoutes = () => {
     <>
       <Routes>
         <Route path='/admin' element={<AdminMetori />} />
+
         <Route path='/admin/addMonitor' element={<AddMonitor />} />
         <Route path='/admin/addMentori' element={<AddMentori />} />
         <Route path='*' element={<Navigate to='admin' />} />

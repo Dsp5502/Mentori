@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { db } from '../../Firebase/FirebaseConfig';
 import { typesMonitor } from '../Types/types';
 
@@ -20,5 +20,24 @@ export const addMonitorAsync = (monitor) => {
       .catch((err) => {
         console.warn(err);
       });
+  };
+};
+
+//* List Monitor
+export const listMonitorSync = (monitors) => {
+  return {
+    type: typesMonitor.listMonitor,
+    payload: monitors,
+  };
+};
+
+export const listMonitorAsync = () => {
+  return async (dispatch) => {
+    const collectionTraer = await getDocs(collection(db, 'monitores'));
+    const monitors = [];
+    collectionTraer.forEach((doc) => {
+      monitors.push({ ...doc.data() });
+    });
+    dispatch(listMonitorSync(monitors));
   };
 };

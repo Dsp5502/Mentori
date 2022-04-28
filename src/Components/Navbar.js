@@ -23,8 +23,8 @@ const Navbar = ({ logueadoBtn }) => {
             </Link>
           </li>
           <li>
-            <Link to='/' className='mx-5 text-lg'>
-              Nuestro Equipo
+            <Link to='/ourmonitor' className='mx-5 text-lg'>
+              Nuestros Monitores
             </Link>
           </li>
           <li>

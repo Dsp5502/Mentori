@@ -12,7 +12,7 @@ export const monitorReducer = (state = initialState, action) => {
       };
     case typesMonitor.listMonitor:
       return {
-        monitors: action.payload,
+        monitors: [...action.payload],
       };
     case typesMonitor.deleteMonitor:
       return {
