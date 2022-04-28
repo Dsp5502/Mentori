@@ -1,10 +1,13 @@
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { FileUp } from '../Helpers/FileUp';
 import { useForm } from '../Hooks/UseForm';
+import { addMonitorAsync } from '../Redux/Actions/actionMonitor';
 
 const AddMonitor = () => {
+  const dispatch = useDispatch();
   const [values, handleInputChange, reset] = useForm({
     nombres: '',
     apellidos: '',
@@ -43,6 +46,7 @@ const AddMonitor = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
+    dispatch(addMonitorAsync(values));
     reset();
   };
 
