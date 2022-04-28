@@ -10,6 +10,7 @@ import { auth } from '../Firebase/FirebaseConfig';
 import PrivateRouters from './PrivateRouters';
 import DashRoutersRoutes from './DashRoutersRoutes';
 import OurMonitor from '../Components/OurMonitor';
+import MentoriHome from '../Components/MentoriHome';
 
 function AppRoutes() {
   const [checking, setChecking] = useState(true);
@@ -59,6 +60,14 @@ function AppRoutes() {
           element={
             <PublicRouters isLoggedIn={isLoggedIn}>
               <OurMonitor />
+            </PublicRouters>
+          }
+        />
+        <Route
+          path='/mentori'
+          element={
+            <PublicRouters isLoggedIn={isLoggedIn}>
+              <MentoriHome />
             </PublicRouters>
           }
         />

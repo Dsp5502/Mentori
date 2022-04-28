@@ -13,7 +13,7 @@ const Main = () => {
           siguiente monitoria en la materia que necesitas ayuda y poder mejorar
           en las areas que tienes dificultades.
         </p>
-        <Link to='/'>
+        <Link to='/mentori'>
           <button className='bg-green-600 px-5 py-2 rounded-2xl text-white w-1/2 mx-auto'>
             Acceder a Mentori
           </button>
