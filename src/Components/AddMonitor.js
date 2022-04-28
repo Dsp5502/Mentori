@@ -1,3 +1,5 @@
+import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { FileUp } from '../Helpers/FileUp';
 import { useForm } from '../Hooks/UseForm';
@@ -6,9 +8,9 @@ const AddMonitor = () => {
   const [values, handleInputChange, reset] = useForm({
     nombres: '',
     apellidos: '',
-    programaAcadémico: '',
+    programaAcademico: '',
     semestre: '',
-    cédula: '',
+    cedula: '',
     celular: '',
     email: '',
     foto1: '',
@@ -17,7 +19,7 @@ const AddMonitor = () => {
   const {
     nombres,
     apellidos,
-    programaAcadémico,
+    programaAcademico,
     semestre,
     cedula,
     celular,
@@ -45,77 +47,99 @@ const AddMonitor = () => {
   };
 
   return (
-    <div className=' w-full px-5 text-white'>
-      <h2 className='text-center uppercase py-5 text-5xl'>Agrega Monitor</h2>
+    <div className=' flex flex-col w-7/12 mx-auto p-5  my-5 bg-white rounded-xl'>
+      <h2 className='text-center uppercase  font-bold text-4xl text-black p-5'>
+        Agrega Monitor
+      </h2>
       <form onSubmit={handleSubmit} className='flex flex-col w-8/12 mx-auto'>
-        <label>Nombres:</label>
+        <label className='uppercase mb-2'>Nombres:</label>
         <input
           type='text'
           name='nombres'
           onChange={handleInputChange}
           value={nombres}
-          className='text-black px-2'
+          placeholder='Ingresa nombre'
+          className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-green-100 '
         />
-        <label>Apellidos:</label>
+        <label className='uppercase mb-2'>Apellidos:</label>
         <input
           type='text'
           name='apellidos'
           onChange={handleInputChange}
           value={apellidos}
-          className='text-black px-2'
+          placeholder='Ingresa apellidos'
+          className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-green-100 '
         />
-        <label>Programa Académico:</label>
+        <label className='uppercase mb-2'>Programa Académico:</label>
         <input
           type='text'
-          name='programaAcadémico'
+          name='programaAcademico'
           onChange={handleInputChange}
-          value={programaAcadémico}
-          className='text-black px-2'
+          value={programaAcademico}
+          placeholder='Ingresa programa académico'
+          className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-green-100 '
         />
-        <label>Semestre:</label>
+        <label className='uppercase mb-2'>Semestre:</label>
         <select
           name='semestre'
           value={semestre}
           onChange={handleInputChange}
-          className='text-black px-2'
+          className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-green-100 bg-transparent '
         >
-          <option disabled>Elige Semestre</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
+          <option className='bg-white ' defaultValue='0'>
+            Elige Semestre
+          </option>
+          <option className='bg-white '>1</option>
+          <option className='bg-white '>2</option>
+          <option className='bg-white '>3</option>
+          <option className='bg-white '>4</option>
+          <option className='bg-white '>5</option>
+          <option className='bg-white '>7</option>
+          <option className='bg-white '>8</option>
+          <option className='bg-white '>9</option>
+          <option className='bg-white '>10</option>
         </select>
-        <label>Cédula:</label>
+        <label className='uppercase mb-2'>Cédula:</label>
         <input
           type='number'
-          name='cédula'
+          name='cedula'
           onChange={handleInputChange}
           value={cedula}
-          className='text-black px-2'
+          placeholder='Ingresa cédula'
+          className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-green-100 '
         />
-        <label>Celular:</label>
+        <label className='uppercase mb-2'>Celular:</label>
         <input
-          type='text'
+          type='number'
           name='celular'
           onChange={handleInputChange}
           value={celular}
-          className='text-black px-2'
+          placeholder='Ingresa celular'
+          className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-green-100 '
         />
-        <label>Email:</label>
+        <label className='uppercase mb-2'>Email:</label>
         <input
           type='text'
           name='email'
           onChange={handleInputChange}
           value={email}
-          className='text-black px-2'
+          placeholder='Ingresa email'
+          className=' rounded-sm px-2 outline-none mb-5 border-b-2 border-green-100 '
         />
-        <label>Foto:</label>
-        <input type='file' name='foto1' onChange={handleFileChange} />
+        <label
+          htmlFor='imafoto'
+          className=' w-1/3 flex items-center gap-2 bg-green-600  hover:bg-green-800 mb-5 text-white font-bold py-2 px-4 rounded uppercase'
+        >
+          <FontAwesomeIcon icon={faFileUpload} />
+          <span>Subir Foto</span>
+        </label>
+        <input
+          type='file'
+          id='imafoto'
+          name='foto1'
+          onChange={handleFileChange}
+          className='hidden'
+        />
 
         <button
           type='submit'
