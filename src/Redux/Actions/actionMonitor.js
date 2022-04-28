@@ -1,4 +1,12 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where,
+} from 'firebase/firestore';
 import { db } from '../../Firebase/FirebaseConfig';
 import { typesMonitor } from '../Types/types';
 
@@ -39,5 +47,29 @@ export const listMonitorAsync = () => {
       monitors.push({ ...doc.data() });
     });
     dispatch(listMonitorSync(monitors));
+  };
+};
+
+//* Delete Monitor
+
+export const DeleteMonitorSync = (monitor) => {
+  return {
+    type: typesMonitor.deleteMonitor,
+    payload: monitor,
+  };
+};
+
+export const deleteMonitorAsync = (cedula) => {
+  console.log('entre');
+  return async (dispatch) => {
+    const collectionTraer = collection(db, 'monitores');
+    const q = query(collectionTraer, where('cedula', '==', cedula));
+    const traerDatosQ = await getDocs(q);
+    traerDatosQ.forEach((docum) => {
+      deleteDoc(doc(db, 'monitores', docum.id));
+    });
+    console.log(traerDatosQ);
+    dispatch(DeleteMonitorSync(cedula));
+    dispatch(listMonitorAsync());
   };
 };

@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listMonitorAsync } from '../../Redux/Actions/actionMonitor';
+import {
+  deleteMonitorAsync,
+  listMonitorAsync,
+} from '../../Redux/Actions/actionMonitor';
 import NavALLMonitor from './NavALLMonitor';
 
 const AllMonitors = () => {
@@ -9,7 +12,13 @@ const AllMonitors = () => {
   console.log(monitors);
   useEffect(() => {
     dispatch(listMonitorAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleDeleteMonitor = (cedula) => {
+    console.log(cedula);
+    dispatch(deleteMonitorAsync(cedula));
+  };
 
   return (
     <div className='w-8/12  mx-auto'>
@@ -25,7 +34,11 @@ const AllMonitors = () => {
           <div className='h-48 lg:h-auto lg:w-48 flex-none  rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'>
             <img
               className='object-cover  h-48 lg:h-full lg:w-48'
-              src={monitor.foto1}
+              src={
+                monitor.foto1 === ''
+                  ? 'https://res.cloudinary.com/djjgtili7/image/upload/v1650336872/ArtistApp/ICONO-PERFIL_gh23iu.png'
+                  : monitor.foto1
+              }
               alt=''
             />
           </div>
@@ -49,7 +62,12 @@ const AllMonitors = () => {
               <button className='bg-blue-700 w-3/6 rounded-lg py-2'>
                 Editar
               </button>
-              <button className='bg-red-700 w-3/6 rounded-lg py-2'>
+              <button
+                className='bg-red-700 w-3/6 rounded-lg py-2'
+                onClick={() => {
+                  handleDeleteMonitor(monitor.cedula);
+                }}
+              >
                 Eliminar
               </button>
             </div>
