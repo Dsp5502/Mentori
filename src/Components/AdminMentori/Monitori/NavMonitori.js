@@ -14,7 +14,7 @@ const NavMonitori = () => {
         <span>Volver</span>
       </Link>
       <Link
-        to='/admin/allMonitors'
+        to='/admin/allMonitori'
         className='flex items-center gap-2 hover:text-green-700'
       >
         <FontAwesomeIcon icon={faBook} />

@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { db } from '../../Firebase/FirebaseConfig';
 import { typesMonitoria } from '../Types/types';
 //* add monitorias
@@ -20,5 +20,25 @@ export const addMonitoriaAsync = (monitoria) => {
       .catch((err) => {
         console.warn(err);
       });
+  };
+};
+
+//*list Monitorias
+
+export const listMonitoriaSync = (monitorias) => {
+  return {
+    type: typesMonitoria.listMonitoria,
+    payload: monitorias,
+  };
+};
+
+export const listMonitoriaAsync = () => {
+  return async (dispatch) => {
+    const collectionTraer = await getDocs(collection(db, 'monitorias'));
+    const monitorias = [];
+    collectionTraer.forEach((doc) => {
+      monitorias.push({ ...doc.data() });
+    });
+    dispatch(listMonitoriaSync(monitorias));
   };
 };
