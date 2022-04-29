@@ -1,21 +1,28 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMonitorAsync } from '../../Redux/Actions/actionMonitor';
-import { listMonitoriaAsync } from '../../Redux/Actions/actionMonitoria';
+import {
+  deleteMonitoriaAsync,
+  listMonitoriaAsync,
+} from '../../Redux/Actions/actionMonitoria';
 import NavALLMonitor from './NavALLMonitor';
 
 const AllMonitori = () => {
   const dispatch = useDispatch();
   const { monitorias } = useSelector((state) => state.monitorias);
   const { monitors } = useSelector((state) => state.monitors);
-  const [monitor, setMonitor] = useState([]);
 
   useEffect(() => {
     dispatch(listMonitoriaAsync());
     dispatch(listMonitorAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const deleteMonitoria = (id) => {
+    dispatch(deleteMonitoriaAsync(id));
+  };
 
   return (
     <>
@@ -63,6 +70,9 @@ const AllMonitori = () => {
                   <FontAwesomeIcon
                     icon={faTrash}
                     className='mx-5 cursor-pointer hover:text-red-600'
+                    onClick={() => {
+                      deleteMonitoria(monitoria.idMonitoria);
+                    }}
                   />
                 </td>
               </tr>

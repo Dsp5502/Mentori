@@ -1,4 +1,12 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where,
+} from 'firebase/firestore';
 import { db } from '../../Firebase/FirebaseConfig';
 import { typesMonitoria } from '../Types/types';
 //* add monitorias
@@ -40,5 +48,28 @@ export const listMonitoriaAsync = () => {
       monitorias.push({ ...doc.data() });
     });
     dispatch(listMonitoriaSync(monitorias));
+  };
+};
+
+//* Delete Monitorias
+
+export const deleteMonitoriaSync = (id) => {
+  return {
+    type: typesMonitoria.deleteMonitoria,
+    payload: id,
+  };
+};
+
+export const deleteMonitoriaAsync = (id) => {
+  return async (dispatch) => {
+    const collectionTraer = collection(db, 'monitorias');
+    const q = query(collectionTraer, where('idMonitoria', '==', id));
+    const traerDatosQ = await getDocs(q);
+    traerDatosQ.forEach((docum) => {
+      deleteDoc(doc(db, 'monitorias', docum.id));
+    });
+    console.log(traerDatosQ);
+    dispatch(deleteMonitoriaSync(id));
+    dispatch(listMonitoriaAsync());
   };
 };
