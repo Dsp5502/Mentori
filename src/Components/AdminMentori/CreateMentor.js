@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CreateMentor = () => {
   return (
     <div className='w-1/2 '>
-      <div class='flex justify-center'>
+      <div className='flex justify-center'>
         <Link
           to='/admin/addMonitor'
           className='flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg'

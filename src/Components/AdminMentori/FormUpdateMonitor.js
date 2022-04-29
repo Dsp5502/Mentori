@@ -8,7 +8,7 @@ import { updateMonitorAsync } from '../../Redux/Actions/actionMonitor';
 
 const FormUpdateMonitor = ({ monitorUpdate, setModalUpdate }) => {
   const dispatch = useDispatch();
-  const [values, handleInputChange, reset] = useForm({
+  const [values, handleInputChange] = useForm({
     nombres: monitorUpdate.nombres,
     apellidos: monitorUpdate.apellidos,
     cedula: monitorUpdate.cedula,

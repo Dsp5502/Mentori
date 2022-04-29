@@ -9,3 +9,10 @@ export const typesMonitor = {
   deleteMonitor: '[Monitor] deleteMonitor',
   updateMonitor: '[Monitor] updateMonitor',
 };
+
+export const typesMonitoria = {
+  addMonitoria: '[Monitoria] AddMonitoria',
+  listMonitoria: '[Monitoria] ListMonitoria',
+  deleteMonitoria: '[Monitoria] deleteMonitoria',
+  updateMonitoria: '[Monitoria] updateMonitoria',
+};
