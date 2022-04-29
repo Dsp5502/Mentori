@@ -6,6 +6,7 @@ import { FileUp } from '../Helpers/FileUp';
 import { useForm } from '../Hooks/UseForm';
 import { addMonitorAsync } from '../Redux/Actions/actionMonitor';
 import NavMonitor from './AdminMentori/NavMonitor';
+import uuid from 'react-uuid';
 
 const AddMonitor = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const AddMonitor = () => {
     celular: '',
     email: '',
     foto1: '',
+    id: uuid(),
   });
 
   const {

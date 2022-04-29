@@ -21,7 +21,10 @@ const ModalUpdateMonitor = ({ setModalUpdate, monitorUpdate }) => {
         <h2 className='text-center uppercase  font-bold text-4xl text-black p-5'>
           Editar Monitor
         </h2>
-        <FormUpdateMonitor monitorUpdate={monitorUpdate} />
+        <FormUpdateMonitor
+          monitorUpdate={monitorUpdate}
+          setModalUpdate={setModalUpdate}
+        />
       </div>
     </div>
   );

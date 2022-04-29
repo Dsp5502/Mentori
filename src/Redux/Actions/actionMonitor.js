@@ -5,6 +5,7 @@ import {
   doc,
   getDocs,
   query,
+  updateDoc,
   where,
 } from 'firebase/firestore';
 import { db } from '../../Firebase/FirebaseConfig';
@@ -59,17 +60,46 @@ export const DeleteMonitorSync = (monitor) => {
   };
 };
 
-export const deleteMonitorAsync = (cedula) => {
+export const deleteMonitorAsync = (id) => {
   console.log('entre');
   return async (dispatch) => {
     const collectionTraer = collection(db, 'monitores');
-    const q = query(collectionTraer, where('cedula', '==', cedula));
+    const q = query(collectionTraer, where('id', '==', id));
     const traerDatosQ = await getDocs(q);
     traerDatosQ.forEach((docum) => {
       deleteDoc(doc(db, 'monitores', docum.id));
     });
     console.log(traerDatosQ);
-    dispatch(DeleteMonitorSync(cedula));
+    dispatch(DeleteMonitorSync(id));
+    dispatch(listMonitorAsync());
+  };
+};
+
+//* Update Monitor
+export const updateMonitorSync = (monitor) => {
+  return {
+    type: typesMonitor.updateMonitor,
+    payload: monitor,
+  };
+};
+
+export const updateMonitorAsync = (monitor) => {
+  return async (dispatch) => {
+    const collectionTraer = collection(db, 'monitores');
+    const q = query(collectionTraer, where('id', '==', monitor.id));
+    const traerDatosQ = await getDocs(q);
+    let idQuery;
+    traerDatosQ.forEach((docum) => {
+      idQuery = docum.id;
+    });
+    const documRef = doc(db, 'monitores', idQuery);
+    await updateDoc(documRef, monitor)
+      .then((res) => {
+        dispatch(updateMonitorSync(monitor));
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
     dispatch(listMonitorAsync());
   };
 };

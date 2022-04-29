@@ -18,9 +18,9 @@ const AllMonitors = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleDeleteMonitor = (cedula) => {
-    console.log(cedula);
-    dispatch(deleteMonitorAsync(cedula));
+  const handleDeleteMonitor = (id) => {
+    console.log(id);
+    dispatch(deleteMonitorAsync(id));
   };
   const handleUpdateMonitor = (monitor) => {
     setModalUpdate(true);
@@ -85,7 +85,7 @@ const AllMonitors = () => {
                 <button
                   className='bg-red-700 w-3/6 rounded-lg py-2'
                   onClick={() => {
-                    handleDeleteMonitor(monitor.cedula);
+                    handleDeleteMonitor(monitor.id);
                   }}
                 >
                   Eliminar

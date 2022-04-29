@@ -1,10 +1,13 @@
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { FileUp } from '../../Helpers/FileUp';
 import { useForm } from '../../Hooks/UseForm';
+import { updateMonitorAsync } from '../../Redux/Actions/actionMonitor';
 
-const FormUpdateMonitor = ({ monitorUpdate }) => {
+const FormUpdateMonitor = ({ monitorUpdate, setModalUpdate }) => {
+  const dispatch = useDispatch();
   const [values, handleInputChange, reset] = useForm({
     nombres: monitorUpdate.nombres,
     apellidos: monitorUpdate.apellidos,
@@ -14,6 +17,7 @@ const FormUpdateMonitor = ({ monitorUpdate }) => {
     programaAcademico: monitorUpdate.programaAcademico,
     semestre: monitorUpdate.semestre,
     foto1: monitorUpdate.foto1,
+    id: monitorUpdate.id,
   });
 
   const {
@@ -28,7 +32,9 @@ const FormUpdateMonitor = ({ monitorUpdate }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+
+    dispatch(updateMonitorAsync(values));
+    setModalUpdate(false);
   };
 
   const handleFileChange = (e) => {
@@ -155,7 +161,7 @@ const FormUpdateMonitor = ({ monitorUpdate }) => {
           type='submit'
           className='bg-blue-500 text-white py-2 px-4 rounded'
         >
-          Agregar Monitor
+          Editar Monitor
         </button>
       </form>
     </>
