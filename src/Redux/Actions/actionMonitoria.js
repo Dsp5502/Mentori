@@ -5,6 +5,7 @@ import {
   doc,
   getDocs,
   query,
+  updateDoc,
   where,
 } from 'firebase/firestore';
 import { db } from '../../Firebase/FirebaseConfig';
@@ -70,6 +71,37 @@ export const deleteMonitoriaAsync = (id) => {
     });
     console.log(traerDatosQ);
     dispatch(deleteMonitoriaSync(id));
+    dispatch(listMonitoriaAsync());
+  };
+};
+
+//* update Mentoriations
+
+export const updateMonitoriaSync = (monitoria) => {
+  return {
+    type: typesMonitoria.updateMonitoria,
+    payload: monitoria,
+  };
+};
+
+export const updateMonitoriaAsync = (monitoria) => {
+  console.log(monitoria);
+  return async (dispatch) => {
+    const collectionTraer = collection(db, 'monitorias');
+    const q = query(collectionTraer, where('idMonitoria', '==', monitoria.id));
+    const traerDatosQ = await getDocs(q);
+    let idQuery;
+    traerDatosQ.forEach((docum) => {
+      idQuery = docum.id;
+    });
+    const documRef = doc(db, 'monitorias', idQuery);
+    await updateDoc(documRef, monitoria)
+      .then((res) => {
+        dispatch(updateMonitoriaSync(monitoria));
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
     dispatch(listMonitoriaAsync());
   };
 };

@@ -1,18 +1,22 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMonitorAsync } from '../../Redux/Actions/actionMonitor';
 import {
   deleteMonitoriaAsync,
   listMonitoriaAsync,
 } from '../../Redux/Actions/actionMonitoria';
+import ModalUpdateMonitoria from './ModalUpdateMonitoria';
 import NavALLMonitor from './NavALLMonitor';
 
 const AllMonitori = () => {
   const dispatch = useDispatch();
   const { monitorias } = useSelector((state) => state.monitorias);
   const { monitors } = useSelector((state) => state.monitors);
+  const [edit, setEdit] = useState(true);
+  const [modalUpdate, setModalUpdate] = useState(false);
+  const [monitoriaUpdate, setMonitoriaUpdate] = useState();
 
   useEffect(() => {
     dispatch(listMonitoriaAsync());
@@ -24,8 +28,20 @@ const AllMonitori = () => {
     dispatch(deleteMonitoriaAsync(id));
   };
 
+  const handleUpdateMonitoria = (monitoria) => {
+    setModalUpdate(true);
+    console.log(monitoria);
+    setMonitoriaUpdate(monitoria);
+  };
+
   return (
     <>
+      {modalUpdate && (
+        <ModalUpdateMonitoria
+          setModalUpdate={setModalUpdate}
+          monitoriaUpdate={monitoriaUpdate}
+        />
+      )}
       <NavALLMonitor />
       <div className='w-10/12 mx-auto flex justify-center'>
         <table className=' w-full   text-white'>
@@ -65,7 +81,10 @@ const AllMonitori = () => {
                 <td className='w-2/12  text-center py-2'>
                   <FontAwesomeIcon
                     icon={faEdit}
-                    className='mx-5 cursor-pointer'
+                    className='mx-5 cursor-pointer hover:text-blue-600'
+                    onClick={() => {
+                      handleUpdateMonitoria(monitoria);
+                    }}
                   />
                   <FontAwesomeIcon
                     icon={faTrash}
