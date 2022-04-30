@@ -28,6 +28,22 @@ export const monitoriaReducer = (state = initialState, action) => {
             : monitoria
         ),
       };
+    case typesMonitoria.filterMonitoria:
+      return {
+        monitorias: state.monitorias.filter(
+          (monitoria) =>
+            monitoria.materia
+              .toLowerCase()
+              .includes(action.payload.toLowerCase()) ||
+            monitoria.salon
+              .toLowerCase()
+              .includes(action.payload.toLowerCase()) ||
+            monitoria.fecha
+              .toLowerCase()
+              .includes(action.payload.toLowerCase()) ||
+            monitoria.hora.toLowerCase().includes(action.payload.toLowerCase())
+        ),
+      };
     default:
       return state;
   }

@@ -15,4 +15,5 @@ export const typesMonitoria = {
   listMonitoria: '[Monitoria] ListMonitoria',
   deleteMonitoria: '[Monitoria] deleteMonitoria',
   updateMonitoria: '[Monitoria] updateMonitoria',
+  filterMonitoria: '[Monitoria] filterMonitoria',
 };

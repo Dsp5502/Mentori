@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import { listMonitorAsync } from '../Redux/Actions/actionMonitor';
 import { listMonitoriaAsync } from '../Redux/Actions/actionMonitoria';
+import NavbarMentori from './Mentori/NavbarMentori';
 
 const MentoriHome = () => {
   const dispatch = useDispatch();
   const { monitorias } = useSelector((state) => state.monitorias);
   const { monitors } = useSelector((state) => state.monitors);
+  console.log(monitorias);
 
   useEffect(() => {
     dispatch(listMonitoriaAsync());
@@ -17,8 +19,10 @@ const MentoriHome = () => {
   return (
     <div className='text-white w-full '>
       <h2 className='text-center uppercase  font-bold text-4xl text-white mb-5 p-5'>
-        Mentor Home
+        Mentorias
       </h2>
+      <NavbarMentori monitors={monitors} monitorias={monitorias} />
+
       <div className='mx-5 bg-white text-black p-5 rounded-lg '>
         <div className='flex flex-wrap justify-center'>
           <ul className='w-full flex gap-5'>
@@ -34,29 +38,26 @@ const MentoriHome = () => {
             <li className='w-2/12 text-center border-b-2 border-green-700  font-bold'>
               Fecha
             </li>
-            <li className='w-1/12 text-center border-b-2 border-green-700  font-bold'>
+            <li className='w-2/12 text-center border-b-2 border-green-700  font-bold'>
               Hora
-            </li>
-            <li className='w-1/12 text-center border-b-2 border-green-700 font-bold'>
-              Acciones
             </li>
           </ul>
           {monitorias.map((monitoria) => (
-            <ul className='w-full flex '>
+            <ul key={monitoria.idMonitoria} className='w-full flex my-3 gap-5'>
               <li className='w-3/12 text-center border-b-2 border-green-200 '>
                 {monitoria.materia}
               </li>
               <li
                 data-tip
-                data-for={monitoria.id}
-                className='w-3/12 text-center border-b-2 border-green-200 relative cursor-pointer '
+                data-for={monitoria.idMonitoria}
+                className='w-3/12 text-center border-b-2 border-green-200 relative cursor-pointer  hover:text-green-700 hover:font-bold'
               >
                 {monitors.map((monitor) =>
                   monitoria.monitorSelect === monitor.id ? (
-                    <>
+                    <div key={monitor.id}>
                       {monitor.nombres} {monitor.apellidos}
                       <ReactTooltip
-                        id={monitoria.id}
+                        id={monitoria.idMonitoria}
                         place='bottom'
                         type='success'
                       >
@@ -82,7 +83,7 @@ const MentoriHome = () => {
                           </p>
                         </section>
                       </ReactTooltip>
-                    </>
+                    </div>
                   ) : (
                     ''
                   )
@@ -95,16 +96,12 @@ const MentoriHome = () => {
               <li className='w-2/12 text-center border-b-2 border-green-200 '>
                 {monitoria.fecha}
               </li>
-              <li className='w-1/12 text-center border-b-2 border-green-200 '>
+              <li className='w-2/12 text-center border-b-2 border-green-200 '>
                 {monitoria.hora}
-              </li>
-              <li className='w-1/12 text-center border-b-2 border-green-200'>
-                Recordatorio
               </li>
             </ul>
           ))}
         </div>
-        <p>perror</p>
       </div>
     </div>
   );

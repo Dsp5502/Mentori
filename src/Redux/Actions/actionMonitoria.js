@@ -105,3 +105,12 @@ export const updateMonitoriaAsync = (monitoria) => {
     dispatch(listMonitoriaAsync());
   };
 };
+
+//* find Monitorias
+
+export const findMonitoriasSync = (busquedaMonitoria) => {
+  return {
+    type: typesMonitoria.filterMonitoria,
+    payload: busquedaMonitoria,
+  };
+};
