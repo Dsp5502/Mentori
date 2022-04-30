@@ -7,6 +7,7 @@ import {
   deleteMonitoriaAsync,
   listMonitoriaAsync,
 } from '../../Redux/Actions/actionMonitoria';
+import NavbarMentori from '../Mentori/NavbarMentori';
 import ModalUpdateMonitoria from './ModalUpdateMonitoria';
 import NavALLMonitor from './NavALLMonitor';
 
@@ -14,7 +15,7 @@ const AllMonitori = () => {
   const dispatch = useDispatch();
   const { monitorias } = useSelector((state) => state.monitorias);
   const { monitors } = useSelector((state) => state.monitors);
-  const [edit, setEdit] = useState(true);
+
   const [modalUpdate, setModalUpdate] = useState(false);
   const [monitoriaUpdate, setMonitoriaUpdate] = useState();
 
@@ -34,6 +35,14 @@ const AllMonitori = () => {
     setMonitoriaUpdate(monitoria);
   };
 
+  monitorias.map((moni) =>
+    monitors.map((mon) =>
+      moni.monitorSelect === mon.id
+        ? (moni.monitornombre = mon.nombres + ' ' + mon.apellidos)
+        : null
+    )
+  );
+
   return (
     <>
       {modalUpdate && (
@@ -43,6 +52,7 @@ const AllMonitori = () => {
         />
       )}
       <NavALLMonitor />
+      <NavbarMentori />
       <div className='w-10/12 mx-auto flex justify-center'>
         <table className=' w-full   text-white'>
           <thead>

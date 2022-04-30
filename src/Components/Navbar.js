@@ -18,17 +18,29 @@ const Navbar = ({ logueadoBtn }) => {
         />
         <ul className='text-white flex justify-center items-center mx-5'>
           <li>
-            <Link to='/' className='mx-5 text-lg'>
-              Inicio
-            </Link>
+            {logueadoBtn !== null ? (
+              <Link to='/admin' className='mx-5 text-lg'>
+                Administar Mentori
+              </Link>
+            ) : (
+              <Link to='/' className='mx-5 text-lg'>
+                Inicio
+              </Link>
+            )}
           </li>
           <li>
-            <Link to='/ourmonitor' className='mx-5 text-lg'>
+            <Link
+              to='/ourmonitor'
+              className={logueadoBtn !== null ? 'hidden' : 'mx-5 text-lg '}
+            >
               Nuestros Monitores
             </Link>
           </li>
           <li>
-            <Link to='/' className='mx-5 text-lg'>
+            <Link
+              to='/contacus'
+              className={logueadoBtn !== null ? 'hidden' : 'mx-5 text-lg '}
+            >
               Contactenos
             </Link>
           </li>

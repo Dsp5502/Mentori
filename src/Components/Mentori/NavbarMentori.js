@@ -8,7 +8,7 @@ import {
 
 const NavbarMentori = ({ monitors, monitorias }) => {
   const dispatch = useDispatch();
-  const [values, handleInputChange, reset] = useForm({
+  const [values, handleInputChange] = useForm({
     busqueda: '',
   });
 

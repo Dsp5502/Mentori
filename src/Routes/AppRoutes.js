@@ -11,6 +11,7 @@ import PrivateRouters from './PrivateRouters';
 import DashRoutersRoutes from './DashRoutersRoutes';
 import OurMonitor from '../Components/OurMonitor';
 import MentoriHome from '../Components/MentoriHome';
+import ContacUS from '../Components/ContacUS';
 
 function AppRoutes() {
   const [checking, setChecking] = useState(true);
@@ -60,6 +61,14 @@ function AppRoutes() {
           element={
             <PublicRouters isLoggedIn={isLoggedIn}>
               <OurMonitor />
+            </PublicRouters>
+          }
+        />
+        <Route
+          path='/contacus'
+          element={
+            <PublicRouters isLoggedIn={isLoggedIn}>
+              <ContacUS />
             </PublicRouters>
           }
         />

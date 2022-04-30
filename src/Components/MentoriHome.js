@@ -24,7 +24,6 @@ const MentoriHome = () => {
         : null
     )
   );
-  console.log(monitorias);
 
   return (
     <div className='text-white w-full '>
