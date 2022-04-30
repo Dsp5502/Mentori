@@ -1,3 +1,5 @@
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
@@ -9,16 +11,24 @@ const MentoriHome = () => {
   const dispatch = useDispatch();
   const { monitorias } = useSelector((state) => state.monitorias);
   const { monitors } = useSelector((state) => state.monitors);
-  console.log(monitorias);
 
   useEffect(() => {
     dispatch(listMonitoriaAsync());
     dispatch(listMonitorAsync());
   }, []);
 
+  monitorias.map((moni) =>
+    monitors.map((mon) =>
+      moni.monitorSelect === mon.id
+        ? (moni.monitornombre = mon.nombres + ' ' + mon.apellidos)
+        : null
+    )
+  );
+  console.log(monitorias);
+
   return (
     <div className='text-white w-full '>
-      <h2 className='text-center uppercase  font-bold text-4xl text-white mb-5 p-5'>
+      <h2 className='text-center uppercase  font-bold text-6xl text-white mb-5 p-5'>
         Mentorias
       </h2>
       <NavbarMentori monitors={monitors} monitorias={monitorias} />
@@ -30,7 +40,7 @@ const MentoriHome = () => {
               Materia
             </li>
             <li className='w-3/12 text-center border-b-2 border-green-700 font-bold '>
-              Monitoria
+              Monitor
             </li>
             <li className='w-2/12 text-center border-b-2 border-green-700 font-bold '>
               Salon
@@ -42,6 +52,15 @@ const MentoriHome = () => {
               Hora
             </li>
           </ul>
+          {monitorias.length === 0 && (
+            <h1 className='text-green-500  w-full h-56 flex gap-5 justify-center items-center my-5 '>
+              <FontAwesomeIcon
+                className='text-6xl'
+                icon={faCircleExclamation}
+              />
+              <h2 className='font-bold text-6xl'>No hay Monitorias</h2>
+            </h1>
+          )}
           {monitorias.map((monitoria) => (
             <ul key={monitoria.idMonitoria} className='w-full flex my-3 gap-5'>
               <li className='w-3/12 text-center border-b-2 border-green-200 '>

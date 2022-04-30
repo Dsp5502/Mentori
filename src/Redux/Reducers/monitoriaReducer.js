@@ -41,7 +41,12 @@ export const monitoriaReducer = (state = initialState, action) => {
             monitoria.fecha
               .toLowerCase()
               .includes(action.payload.toLowerCase()) ||
-            monitoria.hora.toLowerCase().includes(action.payload.toLowerCase())
+            monitoria.hora
+              .toLowerCase()
+              .includes(action.payload.toLowerCase()) ||
+            monitoria.monitornombre
+              .toLowerCase()
+              .includes(action.payload.toLowerCase())
         ),
       };
     default:

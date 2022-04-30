@@ -8,6 +8,7 @@ export const typesMonitor = {
   listMonitor: '[Monitor] ListMonitor',
   deleteMonitor: '[Monitor] deleteMonitor',
   updateMonitor: '[Monitor] updateMonitor',
+  findMonitor: '[Monitor] findMonitor',
 };
 
 export const typesMonitoria = {

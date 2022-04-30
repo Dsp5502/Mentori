@@ -103,3 +103,12 @@ export const updateMonitorAsync = (monitor) => {
     dispatch(listMonitorAsync());
   };
 };
+
+//* Find Monitor
+
+export const findMonitorSync = (monitorSearch) => {
+  return {
+    type: typesMonitor.findMonitor,
+    payload: monitorSearch,
+  };
+};

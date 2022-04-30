@@ -1,3 +1,5 @@
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -6,6 +8,7 @@ import {
 } from '../../Redux/Actions/actionMonitor';
 import ModalUpdateMonitor from './ModalUpdateMonitor';
 import NavALLMonitor from './NavALLMonitor';
+import NavSearch from './NavSearch';
 
 const AllMonitors = () => {
   const [modalUpdate, setModalUpdate] = useState(false);
@@ -41,11 +44,16 @@ const AllMonitors = () => {
         <h2 className='text-center uppercase  font-bold text-4xl text-white p-5'>
           Monitores
         </h2>
+        <NavSearch />
+        {monitors.length === 0 && (
+          <h1 className='text-white  w-full h-56 flex gap-5 justify-center items-center my-5 border-2 border-green-500'>
+            <FontAwesomeIcon className='text-6xl' icon={faCircleExclamation} />
+            <h2 className='font-bold text-6xl'>No hay monitores</h2>
+          </h1>
+        )}
+
         {monitors.map((monitor) => (
-          <div
-            key={monitor.cedula}
-            className='max-w-sm w-full lg:max-w-full h-56 lg:flex my-5'
-          >
+          <div key={monitor.cedula} className=' w-full h-56 lg:flex my-5'>
             <div className='h-48 lg:h-auto lg:w-48 flex-none  rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'>
               <img
                 className='object-cover  h-48 lg:h-full lg:w-48'
