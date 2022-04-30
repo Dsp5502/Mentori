@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 import { listMonitorAsync } from '../Redux/Actions/actionMonitor';
 import { listMonitoriaAsync } from '../Redux/Actions/actionMonitoria';
 
@@ -45,17 +46,49 @@ const MentoriHome = () => {
               <li className='w-3/12 text-center border-b-2 border-green-200 '>
                 {monitoria.materia}
               </li>
-              <li className='w-3/12 text-center border-b-2 border-green-200 '>
+              <li
+                data-tip
+                data-for={monitoria.id}
+                className='w-3/12 text-center border-b-2 border-green-200 relative cursor-pointer '
+              >
                 {monitors.map((monitor) =>
                   monitoria.monitorSelect === monitor.id ? (
                     <>
                       {monitor.nombres} {monitor.apellidos}
+                      <ReactTooltip
+                        id={monitoria.id}
+                        place='bottom'
+                        type='success'
+                      >
+                        <section
+                          key={monitor.cedula}
+                          className=' px-10  flex flex-col items-center bg-slate-50 hover:border-2 hover:border-green-700 text-black shadow-2xl rounded-xl py-3  '
+                        >
+                          <img
+                            className='w-40 h-40 rounded-full object-cover my-5  mx-auto border-4 border-green-700 '
+                            src={monitor.foto1}
+                            alt=''
+                          />
+                          <h3 className='text-sm mt-2'>{monitor.nombres}</h3>
+                          <h3 className='text-2xl font-bold mt-2'>
+                            {monitor.apellidos}
+                          </h3>
+                          <p className='text-md text-green-700 mt-2'>
+                            {monitor.programaAcademico}
+                          </p>
+                          <p className='text-md text-green-700 mt-2'>
+                            {' '}
+                            Semestre {monitor.semestre}{' '}
+                          </p>
+                        </section>
+                      </ReactTooltip>
                     </>
                   ) : (
                     ''
                   )
                 )}
               </li>
+
               <li className='w-2/12 text-center border-b-2 border-green-200 '>
                 {monitoria.salon}
               </li>
@@ -71,6 +104,7 @@ const MentoriHome = () => {
             </ul>
           ))}
         </div>
+        <p>perror</p>
       </div>
     </div>
   );
