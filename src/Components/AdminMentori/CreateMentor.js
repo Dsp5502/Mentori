@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CreateMentor = () => {
   return (
-    <div className='w-1/2 '>
+    <div className='w-full lg:w-1/2 '>
       <div className='flex justify-center'>
         <Link
           to='/admin/addMonitor'

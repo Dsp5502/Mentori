@@ -1,6 +1,5 @@
 import { sendForm } from '@emailjs/browser';
 import React from 'react';
-// import emailjs from 'emailjs-com';
 
 const ContacUS = () => {
   const handleSubmit = (e) => {

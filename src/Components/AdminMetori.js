@@ -4,7 +4,7 @@ import CreateMentori from './AdminMentori/CreateMentori';
 
 const AdminMetori = () => {
   return (
-    <div className='w-full  px-10 flex gap-5'>
+    <div className='w-full  px-10 flex flex-col lg:flex-row gap-5'>
       <CreateMentor />
       <CreateMentori />
     </div>

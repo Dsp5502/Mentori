@@ -1,6 +1,6 @@
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { FileUp } from '../Helpers/FileUp';
 import { useForm } from '../Hooks/UseForm';
@@ -10,6 +10,7 @@ import uuid from 'react-uuid';
 
 const AddMonitor = () => {
   const dispatch = useDispatch();
+  const [spinner, setSpinner] = useState(false);
   const [values, handleInputChange, reset] = useForm({
     nombres: '',
     apellidos: '',
@@ -35,11 +36,15 @@ const AddMonitor = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     console.log(file);
+    setSpinner(true);
 
     FileUp(file)
       .then((resp) => {
         values.foto1 = resp;
         console.log(resp);
+        if (resp) {
+          setSpinner(false);
+        }
       })
       .catch((error) => {
         console.warn(error);
@@ -156,6 +161,15 @@ const AddMonitor = () => {
           >
             Agregar Monitor
           </button>
+          {spinner && (
+            <div className='w-full h-screen bg-black outline-none bg-opacity-50 fixed  top-0 left-0 flex justify-center items-center '>
+              <div className='spinner'>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          )}
         </form>
       </div>
     </>

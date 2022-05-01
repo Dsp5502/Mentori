@@ -12,6 +12,7 @@ import DashRoutersRoutes from './DashRoutersRoutes';
 import OurMonitor from '../Components/OurMonitor';
 import MentoriHome from '../Components/MentoriHome';
 import ContacUS from '../Components/ContacUS';
+import Checking from '../Checking';
 
 function AppRoutes() {
   const [checking, setChecking] = useState(true);
@@ -20,7 +21,6 @@ function AppRoutes() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user);
       setLogueadoBtn(user);
       if (user?.uid) {
         setIsLoggedIn(true);
@@ -31,10 +31,8 @@ function AppRoutes() {
     });
   }, [setIsLoggedIn, setChecking]);
 
-  console.log(logueadoBtn);
-
   if (checking) {
-    return <h1 className='text-6xl text-white'>hola</h1>;
+    return <Checking />;
   }
   return (
     <BrowserRouter>
