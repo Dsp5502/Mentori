@@ -32,7 +32,7 @@ const LoginFormBasic = () => {
       }}
     >
       {({ errors, touched }) => (
-        <Form className='w-full m-5 text-black flex flex-col   px-16 '>
+        <Form className='w-full m-5 text-black flex flex-col   px-4  lg:px-16 '>
           <label className='text-black mb-2'>CORREO ELECTRÓNICO</label>
           <Field
             name='email'
@@ -55,7 +55,7 @@ const LoginFormBasic = () => {
           ) : null}
           <button
             type='submit'
-            className='bg-green-600  hover:bg-green-800  text-white font-bold py-2 px-4 rounded-2xl'
+            className='  bg-green-600  hover:bg-green-800  text-white font-bold py-2 px-4 rounded-2xl'
           >
             ENVIAR
           </button>
