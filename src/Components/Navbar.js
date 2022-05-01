@@ -84,11 +84,13 @@ const Navbar = ({ logueadoBtn }) => {
         </div>
       )}
       <div className='flex justify-between items-center '>
-        <img
-          className='h-32 w-32 mx-5 my-2'
-          src='https://res.cloudinary.com/djjgtili7/image/upload/v1650996417/Mentori-removebg-preview_mldiit.png'
-          alt=''
-        />
+        <Link to='/'>
+          <img
+            className='h-32 w-32 mx-5 my-2'
+            src='https://res.cloudinary.com/djjgtili7/image/upload/v1650996417/Mentori-removebg-preview_mldiit.png'
+            alt=''
+          />
+        </Link>
 
         <ul className='text-white flex justify-center items-center mx-5'>
           <div className=' h-12 mr-4 flex items-center  self-start md:hidden'>
