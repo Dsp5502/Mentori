@@ -15,7 +15,6 @@ const ContacUS = () => {
       'oGebfnu9ojAiyVSwm'
     )
       .then((result) => {
-        console.log(result.text);
         if (result.text === 'OK') {
           Swal.fire({
             title: 'Mensaje enviado',

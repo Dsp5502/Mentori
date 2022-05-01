@@ -51,7 +51,7 @@ const AddMonitor = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
+
     dispatch(addMonitorAsync(values));
     reset();
   };

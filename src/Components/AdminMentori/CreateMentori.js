@@ -7,7 +7,7 @@ const CreateMentori = () => {
       <div className='flex justify-center'>
         <Link
           to='/admin/addMentori'
-          className='flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg'
+          className='flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg hover:border-2 hover:border-green-600 '
         >
           <img
             className=' w-full lg:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg'

@@ -35,7 +35,7 @@ const FormLogin = () => {
           </button>
           <button
             onClick={handleGoogle}
-            className='shadow-2xl border-2 border-black mx-5 px-5 py-2  w-64  rounded-2xl flex items-center '
+            className='shadow-2xl bordebasico mx-5 px-5 py-2  w-64  rounded-2xl flex items-center hover:bg-red-500 hover:text-white hover:border-white '
           >
             <img
               className='w-5'
