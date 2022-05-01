@@ -64,3 +64,34 @@ input[type='number'] {
     opacity: 0;
   }
 }
+
+/* button*/
+
+.buttonlog {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(22 163 74);
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.buttonlog:hover {
+  background-color: white;
+  box-shadow: 0px 15px 20px rgb(22 163 74);
+  color: rgb(22 163 74);
+  transform: translateY(-7px);
+}
+
+.buttonlog:active {
+  transform: translateY(-1px);
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: rgb(22 163 74) !important;
+}

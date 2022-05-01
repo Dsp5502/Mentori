@@ -40,7 +40,7 @@ const NavbarMentori = () => {
           placeholder='Puedes buscar por materia, monitor, salon, Fecha o Hora'
         />
         <button
-          className='w-1/3 bg-green-500 text-white rounded-lg'
+          className='w-1/3 bg-green-600 hover:bg-green-800 text-white rounded-lg'
           type='submit'
         >
           Buscar

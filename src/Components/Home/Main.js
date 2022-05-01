@@ -14,7 +14,7 @@ const Main = () => {
           en las areas que tienes dificultades.
         </p>
         <Link to='/mentori'>
-          <button className='bg-green-600 px-5 py-2 rounded-2xl text-white  mb-5 lg:mb-5  w-full  lg:w-1/2 mx-auto'>
+          <button className='bg-green-600 hover:bg-white hover:text-green-600 px-5 py-2 rounded-2xl text-white  mb-5 lg:mb-5  w-full  lg:w-1/2 mx-auto active:transform active:translate-y-1 transition-all duration-75 ease-in '>
             Acceder a Mentori
           </button>
         </Link>

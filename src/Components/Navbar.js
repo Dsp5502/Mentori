@@ -29,7 +29,7 @@ const Navbar = ({ logueadoBtn }) => {
               {logueadoBtn !== null ? (
                 <Link
                   to='/admin'
-                  className='mx-5  text-lg '
+                  className='mx-5  text-lg  '
                   onClick={() => setHamburguer(!hamburguer)}
                 >
                   Administar Mentori
@@ -37,7 +37,7 @@ const Navbar = ({ logueadoBtn }) => {
               ) : (
                 <Link
                   to='/'
-                  className='mx-5 text-lg '
+                  className='mx-5 text-lg hover:border-b-2 hover:text-green-700 '
                   onClick={() => setHamburguer(!hamburguer)}
                 >
                   Inicio
@@ -104,12 +104,15 @@ const Navbar = ({ logueadoBtn }) => {
             {logueadoBtn !== null ? (
               <Link
                 to='/admin'
-                className='mx-5  text-lg hidden md:inline-block'
+                className='mx-5  text-lg hidden md:inline-block hover:border-b-2 hover:font-bold hover:border-b-green-600'
               >
                 Administar Mentori
               </Link>
             ) : (
-              <Link to='/' className='mx-5 text-lg hidden md:inline-block'>
+              <Link
+                to='/'
+                className='mx-5 text-lg hidden md:inline-block hover:border-b-2 hover:font-bold hover:border-b-green-600'
+              >
                 Inicio
               </Link>
             )}
@@ -120,7 +123,7 @@ const Navbar = ({ logueadoBtn }) => {
               className={
                 logueadoBtn !== null
                   ? 'hidden'
-                  : 'mx-5 text-lg hidden md:inline-block '
+                  : 'mx-5 text-lg hidden md:inline-block hover:border-b-2 hover:font-bold hover:border-b-green-600 '
               }
             >
               Nuestros Monitores
@@ -132,7 +135,7 @@ const Navbar = ({ logueadoBtn }) => {
               className={
                 logueadoBtn !== null
                   ? 'hidden'
-                  : 'mx-5 text-lg hidden md:inline-block '
+                  : 'mx-5 text-lg hidden md:inline-block hover:border-b-2 hover:font-bold hover:border-b-green-600 '
               }
             >
               Contactenos
@@ -141,7 +144,7 @@ const Navbar = ({ logueadoBtn }) => {
           <li>
             {logueadoBtn !== null ? (
               <button
-                className='mx-5 text-lg bg-green-600 px-5 py-2 rounded-2xl hidden md:inline-block'
+                className='mx-5 text-lg  px-5 py-2 rounded-2xl hidden md:inline-block buttonlog '
                 onClick={handleLogOut}
               >
                 Salir
@@ -149,7 +152,7 @@ const Navbar = ({ logueadoBtn }) => {
             ) : (
               <Link
                 to='/login'
-                className='mx-5 text-lg bg-green-600 px-5 py-2 rounded-2xl  hidden md:inline-block'
+                className='mx-5 text-lg  px-5 py-2 rounded-2xl  hidden md:inline-block buttonlog'
               >
                 Acceder
               </Link>

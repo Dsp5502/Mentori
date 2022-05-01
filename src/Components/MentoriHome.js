@@ -31,7 +31,7 @@ const MentoriHome = () => {
       <h2 className='text-center uppercase  font-bold text-4xl lg:text-6xl text-white mb-5 p-5'>
         Monitorias
       </h2>
-      <NavbarMentori monitors={monitors} monitorias={monitorias} />
+      <NavbarMentori />
 
       <div className='mx-2 lg:mx-5 bg-white text-black p-2 lg:p-5 rounded-lg '>
         <div className='flex flex-wrap justify-center'>
@@ -71,7 +71,7 @@ const MentoriHome = () => {
               <li
                 data-tip
                 data-for={monitoria.idMonitoria}
-                className='w-3/12 lg:text-center border-b-2 border-green-200 relative cursor-pointer  hover:text-green-700 hover:font-bold text-xs lg:text-base'
+                className='w-3/12 lg:text-center border-b-2 border-green-200 relative cursor-pointer  hover:text-green-600 hover:font-bold text-xs lg:text-base'
               >
                 {monitors.map((monitor) =>
                   monitoria.monitorSelect === monitor.id ? (
