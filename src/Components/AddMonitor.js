@@ -61,7 +61,7 @@ const AddMonitor = () => {
   return (
     <>
       <NavMonitor />
-      <div className=' flex flex-col w-7/12 mx-auto p-5  my-5 bg-white rounded-xl'>
+      <div className=' flex flex-col w-10/12 lg:w-7/12 mx-auto p-2 lg:p-5  my-5 bg-white rounded-xl'>
         <h2 className='text-center uppercase  font-bold text-4xl text-black p-5'>
           Agrega Monitor
         </h2>
@@ -142,7 +142,7 @@ const AddMonitor = () => {
           />
           <label
             htmlFor='imafoto'
-            className=' w-1/3 flex items-center gap-2 bg-green-600  hover:bg-green-800 mb-5 text-white font-bold py-2 px-4 rounded uppercase'
+            className='  w-full lg:w-1/3 flex items-center gap-2 bg-blue-500  mb-5 text-white font-bold py-2 px-4 rounded uppercase'
           >
             <FontAwesomeIcon icon={faFileUpload} />
             <span>Subir Foto</span>
@@ -157,7 +157,7 @@ const AddMonitor = () => {
 
           <button
             type='submit'
-            className='bg-blue-500 text-white py-2 px-4 rounded'
+            className=' bg-green-600  hover:bg-green-800 text-white py-2 px-4 rounded'
           >
             Agregar Monitor
           </button>
