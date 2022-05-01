@@ -39,7 +39,7 @@ const AllMonitors = () => {
           monitorUpdate={monitorUpdate}
         />
       )}
-      <div className='w-8/12  mx-auto'>
+      <div className='w-9/12 lg:w-8/12  mx-auto'>
         <NavALLMonitor />
         <h2 className='text-center uppercase  font-bold text-4xl text-white p-5'>
           Monitores
@@ -53,10 +53,13 @@ const AllMonitors = () => {
         )}
 
         {monitors.map((monitor) => (
-          <div key={monitor.cedula} className=' w-full h-56 lg:flex my-5'>
-            <div className='h-48 lg:h-auto lg:w-48 flex-none  rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'>
+          <div
+            key={monitor.cedula}
+            className=' w-full lg:h-56 flex flex-col lg:flex-row my-5'
+          >
+            <div className='h-48 lg:h-auto lg:w-48   rounded-t lg:rounded-t-none lg:rounded-l text-center '>
               <img
-                className='object-cover  h-48 lg:h-full lg:w-48'
+                className='object-cover w-full  h-48 lg:h-full lg:w-48'
                 src={
                   monitor.foto1 === ''
                     ? 'https://res.cloudinary.com/djjgtili7/image/upload/v1650336872/ArtistApp/ICONO-PERFIL_gh23iu.png'
@@ -65,7 +68,7 @@ const AllMonitors = () => {
                 alt=''
               />
             </div>
-            <div className=' bg-white  w-full rounded-br-sm  p-4 flex flex-col   '>
+            <div className=' bg-white  w-full rounded-br-sm  p-4 flex flex-col border-2   '>
               <div className='text-gray-900 font-bold text-xl mb-2'>
                 {monitor.nombres} {monitor.apellidos}
               </div>
