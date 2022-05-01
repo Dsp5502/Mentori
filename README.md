@@ -42,4 +42,6 @@ in your computer
 3. Execute the command `npm start`
 4. Visit the url: http://localhost:3000/
 
-###
+### Para Ejecutar los Tests
+
+- Para ejecutar los tests ejecuta el comando `npm test`
