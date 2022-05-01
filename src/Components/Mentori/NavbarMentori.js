@@ -28,7 +28,7 @@ const NavbarMentori = ({ monitors, monitorias }) => {
   return (
     <div className='w-full my-5 flex justify-center items-center'>
       <form
-        className='w-4/6 flex gap-5 justify-center items-center'
+        className='w-full lg:w-4/6 flex flex-col lg:flex-row gap-5 justify-center items-center'
         onSubmit={handleSubmit}
       >
         <input
@@ -38,7 +38,10 @@ const NavbarMentori = ({ monitors, monitorias }) => {
           onChange={handleInputChange}
           placeholder='Puedes buscar por materia, monitor, salon, Fecha o Hora'
         />
-        <button className='w-1/3 bg-green-500 rounded-lg' type='submit'>
+        <button
+          className='w-1/3 bg-green-500 text-white rounded-lg'
+          type='submit'
+        >
           Buscar
         </button>
       </form>

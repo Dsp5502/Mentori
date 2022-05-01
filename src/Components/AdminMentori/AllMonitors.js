@@ -47,8 +47,13 @@ const AllMonitors = () => {
         <NavSearch />
         {monitors.length === 0 && (
           <h1 className='text-white  w-full h-56 flex gap-5 justify-center items-center my-5 border-2 border-green-500'>
-            <FontAwesomeIcon className='text-6xl' icon={faCircleExclamation} />
-            <h2 className='font-bold text-6xl'>No hay monitores</h2>
+            <FontAwesomeIcon
+              className='text-xl hover:text-6xl'
+              icon={faCircleExclamation}
+            />
+            <h2 className='font-bold text-xl hover:text-6xl'>
+              No hay monitores
+            </h2>
           </h1>
         )}
 
@@ -68,7 +73,7 @@ const AllMonitors = () => {
                 alt=''
               />
             </div>
-            <div className=' bg-white  w-full rounded-br-sm  p-4 flex flex-col border-2   '>
+            <div className=' bg-white  w-full rounded-br-sm  p-4 flex flex-col border-2  '>
               <div className='text-gray-900 font-bold text-xl mb-2'>
                 {monitor.nombres} {monitor.apellidos}
               </div>

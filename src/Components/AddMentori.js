@@ -34,7 +34,7 @@ const AddMentori = () => {
   return (
     <>
       <NavMonitori />
-      <div className=' flex flex-col w-7/12 mx-auto p-5  my-5 bg-white rounded-xl'>
+      <div className=' flex flex-col w-10/12  lg:w-7/12 mx-auto p-5  my-5 bg-white rounded-xl'>
         <h2 className='text-center uppercase  font-bold text-4xl text-black p-5'>
           Agrega Monitoria
         </h2>
@@ -94,7 +94,7 @@ const AddMentori = () => {
 
           <button
             type='submit'
-            className='bg-blue-500 text-white py-2 px-4 rounded'
+            className='bg-green-600  hover:bg-green-800 text-white py-2 px-4 rounded'
           >
             Agregar Monitor
           </button>
