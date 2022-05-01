@@ -15,6 +15,7 @@ const MentoriHome = () => {
   useEffect(() => {
     dispatch(listMonitoriaAsync());
     dispatch(listMonitorAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   monitorias.map((moni) =>
@@ -27,48 +28,50 @@ const MentoriHome = () => {
 
   return (
     <div className='text-white w-full '>
-      <h2 className='text-center uppercase  font-bold text-6xl text-white mb-5 p-5'>
-        Mentorias
+      <h2 className='text-center uppercase  font-bold text-4xl lg:text-6xl text-white mb-5 p-5'>
+        Monitorias
       </h2>
       <NavbarMentori monitors={monitors} monitorias={monitorias} />
 
-      <div className='mx-5 bg-white text-black p-5 rounded-lg '>
+      <div className='mx-2 lg:mx-5 bg-white text-black p-2 lg:p-5 rounded-lg '>
         <div className='flex flex-wrap justify-center'>
           <ul className='w-full flex gap-5'>
-            <li className='w-3/12 text-center border-b-2 border-green-700  font-bold'>
+            <li className='w-3/12 text-center border-b-2 border-green-700  font-bold text-xs lg:text-base'>
               Materia
             </li>
-            <li className='w-3/12 text-center border-b-2 border-green-700 font-bold '>
+            <li className='w-3/12 text-center border-b-2 border-green-700 font-bold text-xs lg:text-base '>
               Monitor
             </li>
-            <li className='w-2/12 text-center border-b-2 border-green-700 font-bold '>
+            <li className='w-2/12 text-center border-b-2 border-green-700 font-bold  text-xs lg:text-base'>
               Salon
             </li>
-            <li className='w-2/12 text-center border-b-2 border-green-700  font-bold'>
+            <li className='w-2/12 text-center border-b-2 border-green-700  font-bold text-xs lg:text-base'>
               Fecha
             </li>
-            <li className='w-2/12 text-center border-b-2 border-green-700  font-bold'>
+            <li className='w-2/12 text-center border-b-2 border-green-700  font-bold text-xs lg:text-base'>
               Hora
             </li>
           </ul>
           {monitorias.length === 0 && (
             <h1 className='text-green-500  w-full h-56 flex gap-5 justify-center items-center my-5 '>
               <FontAwesomeIcon
-                className='text-6xl'
+                className='text-3xl lg:text-6xl'
                 icon={faCircleExclamation}
               />
-              <h2 className='font-bold text-6xl'>No hay Monitorias</h2>
+              <span className='font-bold text-3xl lg:text-6xl'>
+                No hay Monitorias
+              </span>
             </h1>
           )}
           {monitorias.map((monitoria) => (
             <ul key={monitoria.idMonitoria} className='w-full flex my-3 gap-5'>
-              <li className='w-3/12 text-center border-b-2 border-green-200 '>
+              <li className='w-3/12 lg:text-center border-b-2 border-green-200 text-xs lg:text-base '>
                 {monitoria.materia}
               </li>
               <li
                 data-tip
                 data-for={monitoria.idMonitoria}
-                className='w-3/12 text-center border-b-2 border-green-200 relative cursor-pointer  hover:text-green-700 hover:font-bold'
+                className='w-3/12 lg:text-center border-b-2 border-green-200 relative cursor-pointer  hover:text-green-700 hover:font-bold text-xs lg:text-base'
               >
                 {monitors.map((monitor) =>
                   monitoria.monitorSelect === monitor.id ? (
@@ -108,13 +111,13 @@ const MentoriHome = () => {
                 )}
               </li>
 
-              <li className='w-2/12 text-center border-b-2 border-green-200 '>
+              <li className='w-2/12 text-center border-b-2 border-green-200 text-xs lg:text-base '>
                 {monitoria.salon}
               </li>
-              <li className='w-2/12 text-center border-b-2 border-green-200 '>
+              <li className='w-2/12  text-center border-b-2 border-green-200 text-xs lg:text-base '>
                 {monitoria.fecha}
               </li>
-              <li className='w-2/12 text-center border-b-2 border-green-200 '>
+              <li className='w-2/12 text-center border-b-2 border-green-200 text-xs lg:text-base '>
                 {monitoria.hora}
               </li>
             </ul>

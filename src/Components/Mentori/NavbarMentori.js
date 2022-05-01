@@ -6,7 +6,7 @@ import {
   listMonitoriaAsync,
 } from '../../Redux/Actions/actionMonitoria';
 
-const NavbarMentori = ({ monitors, monitorias }) => {
+const NavbarMentori = () => {
   const dispatch = useDispatch();
   const [values, handleInputChange] = useForm({
     busqueda: '',
@@ -14,6 +14,7 @@ const NavbarMentori = ({ monitors, monitorias }) => {
 
   useEffect(() => {
     dispatch(listMonitoriaAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
   const handleSubmit = (e) => {

@@ -23,7 +23,7 @@ input[type='number'] {
 }
 
 .spinner {
-  --clr: rgb(0, 113, 128);
+  --clr: rgb(21, 128, 61);
   --gap: 6px;
   /* gap between each circle */
   width: 100px;

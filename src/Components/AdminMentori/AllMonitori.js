@@ -63,7 +63,9 @@ const AllMonitori = () => {
             className='text-xl hover:text-6xl'
             icon={faCircleExclamation}
           />
-          <h2 className='font-bold text-xl hover:text-6xl'>No hay monitores</h2>
+          <span className='font-bold text-xl hover:text-6xl'>
+            No hay Monitorias
+          </span>
         </h1>
       )}
       <div className=' w-10/12 mx-auto flex justify-center'>
