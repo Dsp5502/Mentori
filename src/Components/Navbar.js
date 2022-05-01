@@ -10,7 +10,7 @@ const Navbar = ({ logueadoBtn }) => {
   const dispatch = useDispatch();
   const handleLogOut = () => {
     dispatch(logoutAsync());
-    setHamburguer(!hamburguer);
+    setHamburguer(false);
   };
   return (
     <div className='w-full   bg-black'>
