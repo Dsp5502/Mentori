@@ -19,7 +19,6 @@ const SignupSchema = Yup.object().shape({
 const LoginFormBasic = () => {
   const dispatch = useDispatch();
   const handleSubmit = ({ email, password }) => {
-    console.log(email, password);
     dispatch(loginAsync(email, password));
   };
 

@@ -12,8 +12,6 @@ const OurMonitor = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(monitors);
-
   return (
     <div className='w-full  p-5 bg-white '>
       <h2 className='text-center uppercase  font-bold text-4xl  p-5'>

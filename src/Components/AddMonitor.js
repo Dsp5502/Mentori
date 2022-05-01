@@ -35,13 +35,11 @@ const AddMonitor = () => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    console.log(file);
     setSpinner(true);
 
     FileUp(file)
       .then((resp) => {
         values.foto1 = resp;
-        console.log(resp);
         if (resp) {
           setSpinner(false);
         }
@@ -53,7 +51,7 @@ const AddMonitor = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+   
     dispatch(addMonitorAsync(values));
     reset();
   };

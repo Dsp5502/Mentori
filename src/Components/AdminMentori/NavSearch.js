@@ -8,12 +8,13 @@ import {
 
 const NavSearch = () => {
   const dispatch = useDispatch();
-  const [values, handleInputChange, reset] = useForm({
+  const [values, handleInputChange] = useForm({
     busqueda: '',
   });
 
   useEffect(() => {
     dispatch(listMonitorAsync());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
   const handleSubmit = (e) => {

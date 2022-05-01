@@ -23,7 +23,6 @@ export const addMonitoriaAsync = (monitoria) => {
   return (dispatch) => {
     addDoc(collection(db, 'monitorias'), monitoria)
       .then((res) => {
-        console.log(res);
         dispatch(addMonitoriaSync(monitoria));
       })
       .catch((err) => {
@@ -69,7 +68,6 @@ export const deleteMonitoriaAsync = (id) => {
     traerDatosQ.forEach((docum) => {
       deleteDoc(doc(db, 'monitorias', docum.id));
     });
-    console.log(traerDatosQ);
     dispatch(deleteMonitoriaSync(id));
     dispatch(listMonitoriaAsync());
   };
@@ -85,7 +83,6 @@ export const updateMonitoriaSync = (monitoria) => {
 };
 
 export const updateMonitoriaAsync = (monitoria) => {
-  console.log(monitoria);
   return async (dispatch) => {
     const collectionTraer = collection(db, 'monitorias');
     const q = query(collectionTraer, where('idMonitoria', '==', monitoria.id));

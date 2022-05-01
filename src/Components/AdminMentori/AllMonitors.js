@@ -22,12 +22,10 @@ const AllMonitors = () => {
   }, []);
 
   const handleDeleteMonitor = (id) => {
-    console.log(id);
     dispatch(deleteMonitorAsync(id));
   };
   const handleUpdateMonitor = (monitor) => {
     setModalUpdate(true);
-    console.log(monitor);
     setMonitorUpdate(monitor);
   };
 
@@ -51,9 +49,9 @@ const AllMonitors = () => {
               className='text-xl hover:text-6xl'
               icon={faCircleExclamation}
             />
-            <h2 className='font-bold text-xl hover:text-6xl'>
+            <span className='font-bold text-xl hover:text-6xl'>
               No hay monitores
-            </h2>
+            </span>
           </h1>
         )}
 

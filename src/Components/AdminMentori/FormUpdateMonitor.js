@@ -39,12 +39,9 @@ const FormUpdateMonitor = ({ monitorUpdate, setModalUpdate }) => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    console.log(file);
-
     FileUp(file)
       .then((resp) => {
         values.foto1 = resp;
-        console.log(resp);
       })
       .catch((error) => {
         console.warn(error);

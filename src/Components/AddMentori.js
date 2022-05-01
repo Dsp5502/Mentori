@@ -26,7 +26,6 @@ const AddMentori = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
     dispatch(addMonitoriaAsync(values));
     reset();
   };

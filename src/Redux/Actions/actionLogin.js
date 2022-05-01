@@ -1,5 +1,4 @@
 import {
-  getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -23,12 +22,9 @@ export const loginSync = (email, password) => {
 //* Logout Sincronico
 
 export const loginAsync = (email, password) => {
-  console.log(email, password);
   return async (dispatch) => {
-    // const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((user) => {
-        console.log(user);
         dispatch(loginSync(email, password));
       })
       .catch((error) => {
@@ -66,7 +62,6 @@ export const loginGoogle = () => {
   return async (dispatch) => {
     signInWithPopup(auth, google)
       .then((user) => {
-        console.log(user);
         dispatch(loginSync(user.email, user.displayName));
       })
       .catch((error) => {
@@ -79,7 +74,6 @@ export const loginFacebook = () => {
   return async (dispatch) => {
     signInWithPopup(auth, facebook)
       .then((user) => {
-        console.log(user);
         dispatch(loginSync(user.email, user.displayName));
       })
       .catch((error) => {

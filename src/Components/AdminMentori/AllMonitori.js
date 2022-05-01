@@ -19,7 +19,6 @@ const AllMonitori = () => {
   const dispatch = useDispatch();
   const { monitorias } = useSelector((state) => state.monitorias);
   const { monitors } = useSelector((state) => state.monitors);
-
   const [modalUpdate, setModalUpdate] = useState(false);
   const [monitoriaUpdate, setMonitoriaUpdate] = useState();
 
@@ -35,7 +34,6 @@ const AllMonitori = () => {
 
   const handleUpdateMonitoria = (monitoria) => {
     setModalUpdate(true);
-    console.log(monitoria);
     setMonitoriaUpdate(monitoria);
   };
 

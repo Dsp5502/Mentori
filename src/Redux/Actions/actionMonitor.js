@@ -23,7 +23,6 @@ export const addMonitorAsync = (monitor) => {
   return (dispatch) => {
     addDoc(collection(db, 'monitores'), monitor)
       .then((res) => {
-        console.log(res);
         dispatch(addMonitorSync(monitor));
       })
       .catch((err) => {
@@ -61,7 +60,6 @@ export const DeleteMonitorSync = (monitor) => {
 };
 
 export const deleteMonitorAsync = (id) => {
-  console.log('entre');
   return async (dispatch) => {
     const collectionTraer = collection(db, 'monitores');
     const q = query(collectionTraer, where('id', '==', id));
@@ -69,7 +67,6 @@ export const deleteMonitorAsync = (id) => {
     traerDatosQ.forEach((docum) => {
       deleteDoc(doc(db, 'monitores', docum.id));
     });
-    console.log(traerDatosQ);
     dispatch(DeleteMonitorSync(id));
     dispatch(listMonitorAsync());
   };

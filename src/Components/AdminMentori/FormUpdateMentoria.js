@@ -19,7 +19,6 @@ const FormUpdateMentoria = ({ setModalUpdate, monitoriaUpdate }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
     dispatch(updateMonitoriaAsync(values));
     setModalUpdate(false);
   };
