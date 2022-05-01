@@ -1,12 +1,13 @@
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { FileUp } from '../../Helpers/FileUp';
 import { useForm } from '../../Hooks/UseForm';
 import { updateMonitorAsync } from '../../Redux/Actions/actionMonitor';
 
 const FormUpdateMonitor = ({ monitorUpdate, setModalUpdate }) => {
+  const [spinner, setSpinner] = useState(false);
   const dispatch = useDispatch();
   const [values, handleInputChange] = useForm({
     nombres: monitorUpdate.nombres,
@@ -39,9 +40,13 @@ const FormUpdateMonitor = ({ monitorUpdate, setModalUpdate }) => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
+    setSpinner(true);
     FileUp(file)
       .then((resp) => {
         values.foto1 = resp;
+        if (resp) {
+          setSpinner(false);
+        }
       })
       .catch((error) => {
         console.warn(error);
@@ -146,6 +151,7 @@ const FormUpdateMonitor = ({ monitorUpdate, setModalUpdate }) => {
           <FontAwesomeIcon icon={faFileUpload} />
           <span>Cambiar Foto</span>
         </label>
+
         <input
           type='file'
           id='imafoto'
@@ -160,6 +166,15 @@ const FormUpdateMonitor = ({ monitorUpdate, setModalUpdate }) => {
         >
           Editar Monitor
         </button>
+        {spinner && (
+          <div className='w-full h-screen bg-black outline-none bg-opacity-50 fixed  top-0 left-0 flex justify-center items-center '>
+            <div className='spinner'>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        )}
       </form>
     </>
   );

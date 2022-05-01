@@ -8,6 +8,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import Swal from 'sweetalert2';
 import { db } from '../../Firebase/FirebaseConfig';
 import { typesMonitor } from '../Types/types';
 
@@ -24,6 +25,22 @@ export const addMonitorAsync = (monitor) => {
     addDoc(collection(db, 'monitores'), monitor)
       .then((res) => {
         dispatch(addMonitorSync(monitor));
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Agregado Correctamente',
+        });
       })
       .catch((err) => {
         console.warn(err);
@@ -68,6 +85,22 @@ export const deleteMonitorAsync = (id) => {
       deleteDoc(doc(db, 'monitores', docum.id));
     });
     dispatch(DeleteMonitorSync(id));
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Eliminado Correctamente',
+    });
     dispatch(listMonitorAsync());
   };
 };
@@ -92,6 +125,23 @@ export const updateMonitorAsync = (monitor) => {
     const documRef = doc(db, 'monitores', idQuery);
     await updateDoc(documRef, monitor)
       .then((res) => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Editado Correctamente',
+        });
+
         dispatch(updateMonitorSync(monitor));
       })
       .catch((err) => {

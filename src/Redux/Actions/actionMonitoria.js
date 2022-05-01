@@ -8,6 +8,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import Swal from 'sweetalert2';
 import { db } from '../../Firebase/FirebaseConfig';
 import { typesMonitoria } from '../Types/types';
 //* add monitorias
@@ -24,6 +25,22 @@ export const addMonitoriaAsync = (monitoria) => {
     addDoc(collection(db, 'monitorias'), monitoria)
       .then((res) => {
         dispatch(addMonitoriaSync(monitoria));
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Agregado Correctamente',
+        });
       })
       .catch((err) => {
         console.warn(err);
@@ -69,6 +86,22 @@ export const deleteMonitoriaAsync = (id) => {
       deleteDoc(doc(db, 'monitorias', docum.id));
     });
     dispatch(deleteMonitoriaSync(id));
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Eliminado Correctamente',
+    });
     dispatch(listMonitoriaAsync());
   };
 };
@@ -95,6 +128,22 @@ export const updateMonitoriaAsync = (monitoria) => {
     await updateDoc(documRef, monitoria)
       .then((res) => {
         dispatch(updateMonitoriaSync(monitoria));
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer);
+            toast.addEventListener('mouseleave', Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Editado Correctamente',
+        });
       })
       .catch((err) => {
         console.warn(err);

@@ -3,6 +3,7 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
+import Swal from 'sweetalert2';
 import { facebook, google } from '../../Firebase/FirebaseConfig';
 import { auth } from '../../Firebase/FirebaseConfig';
 import { typesLogin } from '../Types/types';
@@ -28,7 +29,11 @@ export const loginAsync = (email, password) => {
         dispatch(loginSync(email, password));
       })
       .catch((error) => {
-        console.error(error.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'La Contraseña y Usuario no coinciden !',
+        });
       });
   };
 };

@@ -1,7 +1,6 @@
 # **Mentori**
+
 <img width="954" alt="image" src="https://user-images.githubusercontent.com/90290626/166159094-4d42d47e-e8b7-49c9-9352-f63e3b4455f4.png">
-
-
 
 ## **Descripción**
 
@@ -35,6 +34,10 @@ en tu ordenador
 3. Ejecuta el comando `npm start`
 4. Visita la url: http://localhost:3000/
 
+### Para Ejecutar los Tests
+
+- Para ejecutar los tests ejecuta el comando `npm test`
+
 ## **Steps to run the application**
 
 You will need to have installed Node.js and npm.
@@ -45,6 +48,6 @@ in your computer
 3. Execute the command `npm start`
 4. Visit the url: http://localhost:3000/
 
-### Para Ejecutar los Tests
+### To Run the Tests
 
-- Para ejecutar los tests ejecuta el comando `npm test`
+- To run the tests execute the command `npm test`
