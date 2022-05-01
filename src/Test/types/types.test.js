@@ -2,7 +2,7 @@ import {
   typesLogin,
   typesMonitor,
   typesMonitoria,
-} from '../../../Redux/Types/types';
+} from '../../Redux/Types/types';
 
 describe('Verificar types de redux', () => {
   test('Comparar Objetos de Login', () => {
