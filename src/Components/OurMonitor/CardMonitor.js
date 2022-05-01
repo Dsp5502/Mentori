@@ -2,11 +2,11 @@ import React from 'react';
 
 const CardMonitor = ({ monitors }) => {
   return (
-    <div className='flex gap-5'>
+    <div className='flex flex-col lg:flex-row gap-5'>
       {monitors.map((monitor) => (
         <section
           key={monitor.cedula}
-          className='w-1/4   flex flex-col items-center bg-slate-50 hover:border-2 hover:border-green-700 text-black shadow-2xl rounded-xl py-3'
+          className='w-full lg:w-1/4   flex flex-col items-center bg-slate-50 hover:border-2 hover:border-green-700 text-black shadow-2xl rounded-xl py-3'
         >
           <img
             className='w-40 h-40 rounded-full object-cover my-5  mx-auto border-4 border-green-700 '
