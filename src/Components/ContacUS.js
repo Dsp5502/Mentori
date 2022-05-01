@@ -22,7 +22,7 @@ const ContacUS = () => {
   return (
     <div className=' w-full py-5'>
       <form
-        className=' border-2 w-6/12 flex flex-col justify-center items-center mx-auto bg-white rounded-lg shadow-lg py-5'
+        className=' border-2 w-10/12 lg:w-6/12  flex flex-col justify-center items-center mx-auto bg-white rounded-lg shadow-lg py-5'
         onSubmit={handleSubmit}
       >
         <label className='w-full px-8   text-lg uppercase'>Nombre</label>
