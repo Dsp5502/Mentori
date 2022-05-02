@@ -1,4 +1,5 @@
 # **Mentori**
+[![wakatime](https://wakatime.com/badge/user/54d759a2-12d9-48b4-9e4e-88518abe7706/project/583c6de5-c9e3-45c8-85e2-35e9c21e1773.svg)](https://wakatime.com/badge/user/54d759a2-12d9-48b4-9e4e-88518abe7706/project/583c6de5-c9e3-45c8-85e2-35e9c21e1773)
 
 <img width="954" alt="image" src="https://user-images.githubusercontent.com/90290626/166159094-4d42d47e-e8b7-49c9-9352-f63e3b4455f4.png">
 
@@ -58,3 +59,16 @@ in your computer
 ### Wakatime
 
 - https://wakatime.com/@54d759a2-12d9-48b4-9e4e-88518abe7706/projects/xgndhpyyzh?start=2022-04-26&end=2022-05-02
+
+### ScreenShoots
+
+<img width="954" alt="image" src="https://user-images.githubusercontent.com/90290626/166257628-bb1e18a8-087e-4cbf-a543-046b1edb15fa.png">
+<hr>
+<img width="954" alt="image" src="https://user-images.githubusercontent.com/90290626/166257794-bcd77a08-392f-4aff-9abd-1759bc97543e.png">
+<hr>
+<img width="954" alt="image" src="https://user-images.githubusercontent.com/90290626/166257964-b98c95f7-55b2-499c-90e3-390e29aee962.png">
+<hr>
+<img width="954" alt="image" src="https://user-images.githubusercontent.com/90290626/166258094-61d0f9dd-0071-48d4-a947-c74e3cad9d1a.png">
+
+
+
