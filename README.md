@@ -60,7 +60,7 @@ in your computer
 
 - https://wakatime.com/@54d759a2-12d9-48b4-9e4e-88518abe7706/projects/xgndhpyyzh?start=2022-04-26&end=2022-05-02
 
-### ScreenShoots
+### Screenshot
 
 <img width="954" alt="image" src="https://user-images.githubusercontent.com/90290626/166257628-bb1e18a8-087e-4cbf-a543-046b1edb15fa.png">
 <hr>
