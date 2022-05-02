@@ -2,6 +2,9 @@
 
 <img width="954" alt="image" src="https://user-images.githubusercontent.com/90290626/166159094-4d42d47e-e8b7-49c9-9352-f63e3b4455f4.png">
 
+### **Despliegue:**  
+https://mentori-cf3e4.web.app
+
 ## **Descripción**
 
 - _En es una aplicación web que permite a un admistrador registrarse y hacer un CRUD de los mentores y mentorias_.
@@ -51,3 +54,7 @@ in your computer
 ### To Run the Tests
 
 - To run the tests execute the command `npm test`
+
+### Wakatime
+
+- https://wakatime.com/@54d759a2-12d9-48b4-9e4e-88518abe7706/projects/xgndhpyyzh?start=2022-04-26&end=2022-05-02
